@@ -3,17 +3,21 @@
 <table>
   <thead>
     <tr>
-      <th>Expense</th>
+      <th>Account</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @accounts.each do |item| %>
+    <% @accounts.each do |account| %>
       <tr>
-        <td><%= expense_id %></td>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
-        <td><%= link_to 'Delete', item, method: :delete %></td>
+        <td><%= account.id %></td>
+        <td><%= link_to 'Show', account %></td>
+        <td><%= link_to 'Edit', edit_account_path(account) %></td>
+        <td><%= link_to 'Delete', account %></td>
+
+
+
+
       </tr>
     <% end %>
   </tbody>

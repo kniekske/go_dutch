@@ -7,7 +7,7 @@ class AccountsController < ApplicationController
 
 
 	def show
-    	@accounts = Accounts.find(params[:id])
+    	@accounts = Account.find(params[:id])
 	end
 
 	def new
@@ -41,6 +41,10 @@ class AccountsController < ApplicationController
       		format.json { head :no_content }
     	end
  	end
+
+ 	def delete
+ 		puts "cookie"
+ 	end	
 
 	private
 	def create_params
