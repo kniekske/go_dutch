@@ -1,0 +1,31 @@
+<h1>Expenses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Amount</th>
+      <th>Categorie</th>
+      <th>Date</th>
+      <th>User#</th>
+      <th>Account#</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @expenses.each do |expense| %>
+      <tr>
+        <td><%= expense.item %></td>
+        <td><%= expense.amount %></td>
+        <td><%= expense.category %></td>
+        <td><%= expense.created_at %></td>
+        <td><%= expense.user_id %></td>
+        <td><%= expense.account_id %></td>
+        <td><%= link_to 'Show', expense %></td>
+        <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+        <td><%= link_to 'Delete', expense %></td>
+        <td><%= link_to 'New', expense %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

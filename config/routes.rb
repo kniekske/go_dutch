@@ -2,6 +2,14 @@ Rails.application.routes.draw do
 
   devise_for :users
     resources :users
+
+      resources :accounts do
+    resources :expenses
+  end
+
+resources :expenses
+
+
     
 
    root to: "home#index"

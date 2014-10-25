@@ -1,0 +1,29 @@
+<%= form_for :expense do |f| %>
+  <p>
+    <%= f.label :item %><br>
+    <%= f.text_field :item %>
+  </p>
+ 
+  <p>
+    <%= f.label :amount %><br>
+    <%= f.number_field :amount %>
+  </p>
+
+    <p>
+    <%= f.label :category %><br>
+    <%= f.text_field :category %>
+  </p>
+ 
+  <p>
+    <%= f.label :date %><br>
+    <%= f.text_field :created_at %>
+  </p>
+  
+  <p>
+    <%= f.submit %>
+  </p>
+
+
+
+
+<% end %>

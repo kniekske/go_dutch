@@ -1,0 +1,20 @@
+<h1>Accounts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Expense</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @accounts.each do |item| %>
+      <tr>
+        <td><%= expense_id %></td>
+        <td><%= link_to 'Show', item %></td>
+        <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+        <td><%= link_to 'Delete', item, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
