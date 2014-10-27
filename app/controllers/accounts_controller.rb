@@ -7,7 +7,7 @@ class AccountsController < ApplicationController
 
 
 	def show
-    	@accounts = Account.find(params[:id])
+    	@account = Account.find(params[:id])
 	end
 
 	def new
@@ -20,16 +20,27 @@ class AccountsController < ApplicationController
 		redirect_to accounts_path
 	end
 
+
 	def edit
 		@account = Account.find(params[:id])
 	end
 
 	def update
 		@account = Account.find(params[:id])
-		if @account.update(account_params)
-			redirect_to account_path
+		if params[:add_current_user] == 'true'
+			@user = User.find(current_user.id)
+			ua = UsersAccount.new(:user_id => @user.id, :account_id => @account.id)
+			if ua.save
+				redirect_to account_path(@account), notice: 'User Added Successfully'
+			else
+				redirect_to accounts_path, notice: 'Duplicate User Id'
+			end
 		else
-			render 'edit'
+			if @account.update(account_params)
+				redirect_to account_path
+			else
+				render 'edit'
+			end
 		end
 	end
 
@@ -37,17 +48,18 @@ class AccountsController < ApplicationController
 		@account = Account.find(params[:id])
     	@account.destroy
     	respond_to do |format|
-     		format.html { redirect_to accountss_url, notice: 'Account was successfully destroyed.' }
+     		format.html { redirect_to accounts_path, notice: 'Account was successfully destroyed.' }
       		format.json { head :no_content }
     	end
  	end
 
  	def delete
- 		puts "cookie"
+ 		@account = Account.find(params[:id])
+    	@account.delete
  	end	
 
 	private
-	def create_params
+	def account_params
 		params.require(:account).permit(:expense_id, :user_id)
 	end
 

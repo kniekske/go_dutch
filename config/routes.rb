@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-    resources :users
+    # resources :users
 
       resources :accounts do
     resources :expenses
@@ -9,11 +9,12 @@ Rails.application.routes.draw do
 
 resources :expenses
 resources :accounts
+post "accounts/new"
 
 
     
 
-   root to: "home#index"
+   root to: "accounts#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

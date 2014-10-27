@@ -1,13 +1,16 @@
 <%= form_for :account do |f| %>
-  <p>
-    <%= f.label :account_id %><br>
-    <%= f.text_field :account_id %>
+
+   <p>
+    <%= f.label :account %><br>
+   
   </p>
  
   <p>
     <%= f.submit %>
   </p>
 
+
+<% end %>
 
 
 <%= link_to 'Back', accounts_path %>
@@ -16,4 +19,5 @@
 
 
 
-<% end %>
+
+

@@ -1,8 +1,14 @@
+
 <p>
   <strong>Account:</strong>
-  <%= @account_id %>
+  <%= @account.id %>
+   <% @account.users.each do |u| %>
+   <%= u.email %>
+   <% end %>
 </p>
 
 
 
 <%= link_to 'Back', accounts_path %>
+<%= link_to 'Edit', edit_account_path %>
+
