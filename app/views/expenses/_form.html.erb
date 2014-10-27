@@ -35,6 +35,12 @@
       <%= f.label :created_at %><br>
       <%= f.text_field :created_at %>
     </div>
+
+
+    <div class="field">
+      <%= f.label :account_id %><br>
+      <%= f.select :account_id, Account.all.map { |c| [c.id, c.id] } %>
+    </div>
   
 
   <div class="actions">
@@ -42,5 +48,7 @@
   </div>
 </form>
 <% end %>
+
+
 
  

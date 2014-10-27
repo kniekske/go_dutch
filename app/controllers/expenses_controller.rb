@@ -6,20 +6,21 @@ class ExpensesController < ApplicationController
 
 	def new
 		@expense = Expense.new
+		@expense.user_id = current_user.id
 		@expense.save
-		redirect_to expenses_path
 	end
 	
 	def create
-		@expense = Expense.new(create_params)
+		@expense = Expense.new
+		@expense.user_id = current_user.id
 		@expense.save
 		redirect_to expenses_path
 	end
-
 
 	def show
 		@expense = Expense.find(params[:id])
 	end
+
 
 	def edit
 		@expense = Expense.find(params[:id])
@@ -38,7 +39,7 @@ class ExpensesController < ApplicationController
 		@expense = Expense.find(params[:id])
     	@expense.destroy
     	respond_to do |format|
-     		format.html { redirect_to menus_url, notice: 'Expense was successfully destroyed.' }
+     		format.html { redirect_to expenses_url, notice: 'Expense was successfully destroyed.' }
       		format.json { head :no_content }
     	end
  	end
@@ -50,14 +51,10 @@ class ExpensesController < ApplicationController
 
 
 	private
-	def create_params
-		params.require(:expense).permit(:item, :amount, :category,)
+	def expense_params
+		params.require(:expense).permit(:item, :amount, :category, :account_id, :user_id)
 	end
 
-
-
-
-	
 
 end
 

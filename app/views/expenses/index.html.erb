@@ -9,7 +9,7 @@
     <tr>
       <th>Item</th>
       <th>Amount</th>
-      <th>Categorie</th>
+      <th>Category</th>
       <th>Date</th>
       <th>User#</th>
       <th>Account#</th>
@@ -23,11 +23,15 @@
         <td><%= expense.amount %></td>
         <td><%= expense.category %></td>
         <td><%= expense.created_at %></td>
-        <td><%= expense.user_id %></td>
+        <% if expense.user_id.present? %>
+        <td><%= User.find(expense.user_id).email %></td>
+        <% else %>
+        <td></td>
+        <% end %>
         <td><%= expense.account_id %></td>
-        <td><%= button_to 'Show', expense %></td>
-        <td><%= button_to 'Edit', edit_expense_path(expense) %></td>
-        <td><%= button_to 'Delete', expense %></td>
+        <td><%= button_to 'Show', expense, :method => :get %></td>
+        <td><%= button_to 'Edit', edit_expense_path(expense), :method => :get %></td>
+        <td><%= button_to 'Delete', expense, :method => :get , method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
       </tr>
     <% end %>

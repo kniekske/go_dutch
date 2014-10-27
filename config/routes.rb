@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 resources :expenses
 post "expenses/new"
 post "expenses/delete"
+post "expenses/show"
+
 
 resources :accounts
 post "accounts/new"
