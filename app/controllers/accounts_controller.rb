@@ -12,6 +12,8 @@ class AccountsController < ApplicationController
 
 	def new
 		@account = Account.new
+		@account.save
+		redirect_to accounts_path
 	end
 	
 	def create
@@ -62,6 +64,8 @@ class AccountsController < ApplicationController
 	def account_params
 		params.require(:account).permit(:expense_id, :user_id)
 	end
+
+	
 
 
 end

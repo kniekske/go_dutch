@@ -6,6 +6,8 @@ class ExpensesController < ApplicationController
 
 	def new
 		@expense = Expense.new
+		@expense.save
+		redirect_to expenses_path
 	end
 	
 	def create
@@ -13,6 +15,7 @@ class ExpensesController < ApplicationController
 		@expense.save
 		redirect_to expenses_path
 	end
+
 
 	def show
 		@expense = Expense.find(params[:id])
@@ -24,11 +27,11 @@ class ExpensesController < ApplicationController
 
 	def update
 		@expense = Expense.find(params[:id])
-		# if @expense.update(expense_params)
-		# 	redirect_to expenses_path
-		# else
-		# 	render 'edit'
-		# end
+		if @expense.update(expense_params)
+			redirect_to expenses_path
+		else
+			render 'edit'
+		end
 	end
 
 	def destroy
@@ -47,9 +50,14 @@ class ExpensesController < ApplicationController
 
 
 	private
-	def expense_params
-		params.require(:expense).permit(:item, :amount, :categorie)
+	def create_params
+		params.require(:expense).permit(:item, :amount, :category,)
 	end
+
+
+
+
+	
 
 end
 

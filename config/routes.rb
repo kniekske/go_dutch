@@ -3,13 +3,17 @@ Rails.application.routes.draw do
   devise_for :users
     # resources :users
 
-      resources :accounts do
-    resources :expenses
-  end
+#      resources :accounts do
+    #resources :expenses
+#  end
 
 resources :expenses
+post "expenses/new"
+post "expenses/delete"
+
 resources :accounts
 post "accounts/new"
+
 
 
     

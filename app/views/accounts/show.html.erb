@@ -1,14 +1,14 @@
 
-<p>
-  <strong>Account:</strong>
+<h2>Account</h2>
   <%= @account.id %>
+
+<h2>User</h2>  
    <% @account.users.each do |u| %>
    <%= u.email %>
    <% end %>
-</p>
 
 
 
-<%= link_to 'Back', accounts_path %>
-<%= link_to 'Edit', edit_account_path %>
+
+<%= button_to'New Expense', expenses_path %>
 
