@@ -1,7 +1,8 @@
 class ExpensesController < ApplicationController
 
 	def index
-		@expenses = Expense.all
+		@expenses = Expense.all.where(:account_id => current_user.accounts.first.id)
+		@account_id = current_user.accounts.first.id
 	end
 
 	def new
