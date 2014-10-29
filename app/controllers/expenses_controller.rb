@@ -2,7 +2,7 @@ class ExpensesController < ApplicationController
 
 	def index
 		@expenses = Expense.all.where(:account_id => current_user.accounts.first.id)
-		@account_id = current_user.accounts.first.id
+		@accounts = current_user.accounts
 	end
 
 	def new

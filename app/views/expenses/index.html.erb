@@ -1,4 +1,4 @@
-<h2>New expense</h2>
+<h1>New expense</h1>
 
 <%= button_to "New expense", new_expense_path %> 
 
@@ -20,7 +20,7 @@
     <% @expenses.each do |expense| %>
       <tr>
         <td><%= expense.item %></td>
-        <td><%= expense.amount %></td>
+        <td> € <%= expense.amount %></td>
         <td><%= expense.category %></td>
         <td><%= expense.created_at %></td>
         <% if expense.user_id.present? %>
@@ -38,5 +38,33 @@
   </tbody>
 </table>
 
+<% @accounts.each do |a| %> 
+
 <h2>Total expenses</h2>
-<p> <%= Account.find(@account_id).total_expenses %></p>
+<h3>  €  <%= a.total_expenses %></h3>
+
+<h2>Expenses per user</h2>
+
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>User#</th>
+      <th>Total amount</th>
+    </tr>
+  </thead>
+
+ <tbody>
+    <% a.users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td> € <%= user.expenses_for_account(a) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+
+<% end %>
+
+ 
+
+

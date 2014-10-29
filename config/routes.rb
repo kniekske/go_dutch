@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   devise_for :users
-    # resources :users
+  get "users/sign_out"
+     # resources :users
 
 #      resources :accounts do
     #resources :expenses
@@ -15,6 +16,11 @@ post "expenses/show"
 
 resources :accounts
 post "accounts/new"
+
+
+
+
+
 
 
 

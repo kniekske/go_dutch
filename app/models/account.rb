@@ -9,6 +9,9 @@ class Account < ActiveRecord::Base
 		end
 		return total 
 	end
-end
+
 
 # Account.first.total_expenses
+
+
+end
