@@ -22,8 +22,8 @@ body {
      padding-top: 60px;
      padding-right: 60px;
 
-padding-left: 60px;
-     background: url("http://wallpoper.com/images/00/25/08/36/coins-money_00250836.jpg");
+	padding-left: 60px;
+     background-image: url("coins-money_00250836.jpg");
      background-size: 1440px 800px;
      background-repeat:no-repeat;
 }
