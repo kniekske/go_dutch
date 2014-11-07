@@ -26,8 +26,10 @@
     </div>
 
     <div class="field">
-      <%= f.label :category %><br>
-      <%= f.text_field :category %>
+      <%= f.label :category %> <br>
+      <%= f.select(:category, options_for_select([['Accomodation', 1], ['Transport', 2], ['Food and Drinks', 3], ['Entertainment', 4]]), {class: "form-control"}) %>
+    </div>
+
     </div>
 
   
